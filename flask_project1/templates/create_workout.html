@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='extended_beauty.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="bg-gradient">
+  <div
+    class="container d-flex justify-content-center align-items-center"
+    style="min-height: 100vh"
+  >
+    <div class="col-md-4 login-form">
+      <form method="POST" action="/new-workout">
+        <h2 class="text-center">Add New Workout</h2>
+
+        {% with messages = get_flashed_messages() %} {% if messages %} {{
+        messages[0]}} {% endif %} {% endwith %}
+
+        <div class="mb-3">
+          <label for="pushups" class="form-label">Push-Ups</label>
+          <input
+            type="number"
+            class="form-control"
+            id="pushups"
+            name="pushups"
+            aria-describedby="pushupHelp"
+            placeholder="Enter number of pushups done"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="comment" class="form-label">Comment</label>
+          <input
+            type="text"
+            class="form-control"
+            id="comment"
+            name="comment"
+            aria-describedby="pushupHelp"
+            placeholder="Any comments"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Add Workout</button>
+      </form>
+
+      <div class="notification is-danger mt-3 text-center"></div>
+    </div>
+    {% endblock %}
+  </div>
+</div>

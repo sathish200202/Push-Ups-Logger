@@ -1,0 +1,25 @@
+Ensure headers and data are properly centered .text-center {
+  text-align: center !important;
+}
+
+/* Additional spacing between action buttons */
+.btn-sm {
+  margin-right: 8px; /* Space between buttons in the action column */
+}
+
+/* Hover Effect for Table Rows */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Light grey on hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Button Hover Effects */
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #4e73df; /* Blue color for the buttons on hover */
+}
+
+.btn-outline-danger:hover {
+  background-color: #e74a3b;
+  color: #fff;
+}

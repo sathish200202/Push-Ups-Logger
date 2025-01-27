@@ -1,0 +1,67 @@
+.fjalla-one-regular {
+  font-family: "Fjalla One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/*html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1; /* This makes the content take up available space */
+/*}
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0; /* Reduced padding for a smaller footer */
+/*text-align: center;
+  font-size: 14px; /* Smaller text */
+/*}
+
+footer nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0;
+}
+
+footer nav ul li {
+  display: inline-block;
+  margin-right: 10px; /* Reduced space between links */
+/*}
+
+footer nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px; /* Smaller font size for links */
+/*}
+
+footer nav ul li a:hover {
+  text-decoration: underline;
+}*/
+
+footer {
+  position: fixed; /* Position the footer at the bottom */
+  bottom: 0; /* Align it to the bottom of the viewport */
+  left: 0;
+  right: 0;
+  width: 100%; /* Make it full width */
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: -2px -2px 2px white;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1rem;
+}

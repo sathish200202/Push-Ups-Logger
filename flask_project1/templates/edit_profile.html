@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='extended_beauty.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <!-- Update Profile Form Card -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card update-profile-card shadow-lg">
+        <div class="card-body">
+          <h2 class="text-center mb-4">Update Profile</h2>
+
+          <form method="POST" action="/edit-profile">
+            <!-- Name Input with Icon -->
+            <div class="form-group mb-3">
+              <label for="name"> <i class="fas fa-user"></i> Name </label>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                id="name"
+                value="{{ user.name }}"
+                required
+              />
+            </div>
+
+            <!-- Email Input with Icon -->
+            <div class="form-group mb-3">
+              <label for="email"> <i class="fas fa-envelope"></i> Email </label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                value="{{ user.email }}"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+              <button type="submit" class="btn btn-style btn-lg w-100">
+                Update Profile
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

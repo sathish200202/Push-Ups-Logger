@@ -1,0 +1,32 @@
+/* Custom Table Heading Style */
+.custom-heading {
+  background: linear-gradient(
+    45deg,
+    #f88f68,
+    #ed816e
+  ); /* Gradient from coral to tomato */
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding: 15px 0; /* Padding for better spacing */
+  border-radius: 8px;
+}
+
+.custom-heading th {
+  font-size: 18px;
+  text-transform: uppercase; /* Makes text uppercase for a bolder look */
+  letter-spacing: 1px; /* Adds space between letters */
+}
+
+/* Optional: Add hover effect for rows */
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Slight hover effect */
+}
+
+.heading {
+  color: rgb(87, 86, 86);
+}
+
+.user_name {
+  color: rgb(56, 56, 245);
+}

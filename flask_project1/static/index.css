@@ -1,0 +1,71 @@
+/* extended_beauty.css */
+
+/* Hero Section Styling */
+.hero {
+  background: linear-gradient(45deg, #007bff, #00bcd4); /* Blue gradient */
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero .btn {
+  background-color: #ff6347;
+  color: white;
+  border-radius: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Features Section Styling */
+#features .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#features .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+#features .card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+#features h5 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Call to Action Section */
+.bg-dark {
+  background-color: #343a40 !important;
+}
+
+.bg-dark .btn {
+  background-color: #ffc107;
+  color: #343a40;
+  border-radius: 30px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+/* Footer Styling */
+/* footer {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer p {
+  margin-top: 0;
+  font-size: 1rem;
+} */

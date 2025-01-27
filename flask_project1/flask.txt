@@ -1,0 +1,294 @@
+				FLASK - python web framework
+
+what is flask?
+	 Flask is a micro web framework for Python.
+	 Flask is a lightweight WSGI web application framework.
+	 WSGI - stands for " Web Server Gateway Interface"
+	 It is designed to make getting started quick and easy, with the ability to scale up to complex applications.
+
+
+features of flask:
+	It's easy to set up and use.
+	It uses Jinja2 templating engine for HTML rendering.
+	It has a built-in development server and debugger.
+	It's based on Werkzeug, a comprehensive WSGI utility library.
+	It's extensible, allowing the integration of extensions for database support, authentication, form handling.
+
+
+Advantages of flask:
+	Lightweight and Minimalistic
+	Flexibility
+	Easy to Learn
+	Great for Prototyping
+	Extensibility
+	Built-in Development Server and Debugger
+	Scalability
+
+
+How to install flask?
+	Dependencies(all in latest version):
+		python
+		pip
+		virtual environment
+
+	create a new folder for flask and go into the folder and give this command for install flask.
+	command - pip install flask  ... that's it.
+
+How to install virtual environment?
+	commands - pip install virtualenv - for install virtual env on our machine
+		   virtualenv venv(virtualenv name) - for creating our own virtualenv.
+		   venv/Scripts/activate - activate the virtualenv
+ 
+
+How to print hello world in flask?
+	first, create __init__.py for our app.
+		this file a a initial file for our project.
+
+	The __init__.py file in Flask is used to mark a directory as a package and is often where the main Flask app is initialized.
+	It supports organizing your Flask project into multiple modules or Blueprints, making it easier to scale and maintain.
+	In large Flask apps, it’s a good practice to use an application factory in __init__.py to create the Flask app instance with configurations and set up various components.
+	
+
+	import our main and auth file into __init__.py, because whenever we start our project, the init.py file runs first.
+
+	how to import?
+		inside the create app func,
+			from .(filename) import instance(object name)
+
+what is Blueprint?
+	A Blueprint in Flask is a way to organize your application into smaller, reusable components.
+	It allows you to define routes, views, and other functionality in a modular way, which is especially useful for larger applications.
+
+features of Blueprint:
+	Modular Organization
+	Reusability
+	Separation of Concerns
+	Cleaner Codebase
+	Support for Nested Blueprints
+	
+
+how to use BluePrint?
+
+	from flask import Blueprint
+
+# Define a blueprint named 'main'
+bp = Blueprint('main', __name__)
+
+# Define a route inside the blueprint
+@bp.route('/')
+def home():
+    return "Hello, this is the Home Page of the Main Blueprint!"
+
+@bp.route('/about')
+def about():
+    return "This is the About Page of the Main Blueprint!"
+
+
+
+how to run the flask app?
+	first we need to activate the venv - .\venv\Scripts\Activate
+	
+	 set the FLASK_APP Environment variable.
+(in powershell)	 command - $env:FLASK_APP = "app"  # Replace 'app' with the name of your Python file without the .py extension
+
+(in command prompt) command - set FLASK_APP=app  # Replace 'app' with the name of your Python file without the .py extension
+	
+	finally, flask run - this command will run the server..
+
+
+How to render the HTMl page?
+	in flask have in-build function for render the template, the function name is "render_template"
+	
+	we need folder for html files and the folder name is must have "templates"
+
+
+Create our pages:
+	create nav bar for every pages...so, the nav bar is a base.. create in base.html and extends in all our html pages.. using "jija pattern" for render the pages..
+
+	{% %} - it means conditional, like if, else, for,....
+	{{}}  - it means variable,...
+	 
+	in flask, using "url_for" for given a urls, like static files and page navigations
+	
+	give url for static files,
+		"{{url_for('static', filename='given a file path')}}"
+	
+	url for page navigation,
+		"{{url_for('main(isntance name(object)).index(html file name)')}}"
+
+
+How to handle POST and GET request?
+
+	HTTP method - GET, POST, PUT(UPDATE), DELETE	
+
+	in flask, using decorators for HTTP methods,
+
+	ex: @app.route('/signup', methods = ['POST']) - this is the method for posting the data to web server
+	creating a function for signup, and get the data from the request form..
+
+	we need few library, that are "request" and "redirect"
+	ex: name = request.form.get('name')
+
+	redirect used to navigate our poge after some validations...
+
+	use one thing, it's url_for... - for where the page will redirect
+	ex: return redirect(url_for('main.index'))
+
+
+	in html form, we add some...
+	
+	in form we need to add method and action...
+
+	method takes a HTTP method and action takes a "what action will perform" like login or signup,...
+
+	and in the input, we need to add a name..,
+
+	finally, the submit button, we need to add the type is submit...that's it.
+	
+	
+Connect database with flask:
+	we need dotenv for store our environment variables.. first install python-dotenv...
+	command - pip install python-dotenv
+
+	next, in init.py.. create a config for database, so use sqlalchemy package for database connectivity..
+
+	import the SQLAlchemy from flask_sqlalchemy
+
+	config to app using secret key and sqlalchemy database url...
+
+	creating a models for tables in database...
+
+	creating a table manually using command line...
+
+	in command line go inside the python..
+
+	and import our db and app
+
+	and put this command... db.create_all(app=create_app())
+
+	note: if it's not working use another way...
+		go inside the project directory
+		activate python intrepreter
+		import the db and create_app function
+		create a instance for our app ex: app = create_app()
+		and use this command for create db ex: with app.app_context():
+													db.create_all()
+		after that, the table was created automatically
+
+
+Signup functionality:
+
+		the first step collect the data from the user request
+		then, hash the password before storing into db
+
+		in flask, "werkzeug" this package use for hashing the password
+
+		from werkzeug.security import generate_password_hash .. this is the function for hash the password
+
+		method='pbkdf2:sha256': This specifies the hashing algorithm to use. 
+		pbkdf2:sha256 is a strong hashing method that uses PBKDF2 (Password-Based Key Derivation Function 2) with the SHA-256 hashing algorithm.
+
+		create a new user like this.. new_user = User(name=name, email=email, password=hashed_password)
+
+		db.session.add(new_user): Adds the new new_user object to the session, meaning that it’s marked to be saved in the database.
+
+		db.session.commit(): This commits the session, actually saving the new user to the database.
+
+
+Login functionality:
+	in flask have build-in function for login.. package name is flask-login
+	command for install - pip install flask-login
+
+	Flask-Login provides user session management for Flask. It handles the common tasks of logging in, logging out, 
+	and remembering your users’ sessions over extended periods of time. (use this website for reference - https://flask-login.readthedocs.io/en/latest/)
+
+	we need some functionalities...
+			login_required, current_user, login_user, logout_user from flask-login
+			import UserMixin from flask_login
+
+			login_user - this function for login
+			logout_user - this function for logout
+			current_user - this function for get the current user
+			login_required - this function it's like a condition
+
+
+			import check_password_hash from werkzeug.security for check the hashing password
+
+			and write fucntionality for login and logout...
+
+CRUD Application:
+
+	POST or CREATE:
+		create model for our workouts and store to database...
+		columns - id, pushups, posted_date, comment
+
+		first render the create page..
+
+		and the user send the post method request get the all data from request and store to the database..
+
+		ex:
+			pushups = request.form.get('pushups')
+		comment = request.form.get('comment')
+
+		try:
+			workout = Workout(pushups=pushups, comment=comment, author=current_user)
+
+			db.session.add(workout)
+
+			db.session.commit()
+		
+		use foriegn key for connect to the user table for everyone have only their workouts only not others...
+
+	
+
+	GET:
+		first we need to find the user...
+		user = User.query.filter_by(email=current_user.email).first_or_404()
+		and get the workout from the user, ex: user.Workout
+		and render the workout to html page...
+
+	PUT or UPDATE:
+		update method need id..
+		update the workout using workout id..
+		get the id from user request... this is the method get the id as a parameter (<int:workout_id>)
+		and pass the id in html page... {{ url_for('main.update_workout', workout_id=workout.id)}} like this..
+
+		ex:
+			 workout.pushups = request.form['pushups']
+           	 workout.comment = request.form['comment'] 
+			 this is, how update the data...
+		finally commit the changes....
+		db.session.commit()
+
+note: if you change anything, you need to commit to the database...
+
+	DELETE:
+		delete method also need id...
+		get the workout id from user request...
+		get the current workout using workout_id..
+		then delete and commit that..
+		ex:
+			db.session.delete(workout_id)
+			deb.session.commit()
+		
+		that's it....
+
+PAGINATION:
+	Pagination in Flask is a way to break up large datasets or lists into smaller, 
+	manageable chunks (pages), which are then presented to the user in a paginated view. 
+	This is especially useful when you have a lot of data (like blog posts, user profiles, 
+	or workout records) that would otherwise be overwhelming to display on a single page.
+
+	ex:
+		backend:
+			#create a page
+			page = request.args.get('page', 1, type=int)
+
+			user = User.query.filter_by(email=current_user.email).first_or_404()
+
+			workouts = Workout.query.filter_by(author=user).paginate(page=page, per_page=3)
+
+			return render_template('all_workouts.html', workouts=workouts, user=user)
+
+		frontend:
+			

@@ -1,0 +1,88 @@
+/* Custom Navbar Styling */
+.navbar {
+  border-radius: 10px; /* Softly rounded corners */
+}
+
+.navbar-toggler-icon {
+  background-color: #333; /* Dark hamburger icon */
+}
+
+.navbar-nav .nav-item .btn {
+  font-weight: bold; /* Make the buttons bold */
+}
+
+.navbar-nav .nav-item .btn:hover {
+  background-color: #007bff; /* Blue color on hover for buttons */
+  color: white;
+}
+
+.navbar-brand img {
+  border-radius: 50%; /* Round the logo image */
+}
+
+.navbar-nav .nav-item .btn-outline-dark:hover {
+  background-color: #343a40; /* Dark background on hover for outline buttons */
+  color: white;
+}
+
+.heading-style {
+  background: linear-gradient(45deg, #007bff, #00bcd4); /* Gradient colors */
+  -webkit-background-clip: text; /* Clip the background to the text */
+  color: transparent; /* Make the text color transparent to show the gradient */
+  font-weight: 700;
+}
+
+nav {
+  border: 1px solid transparent; /* Keeps the original border */
+  border-radius: 4px; /* Rounded corners for the navbar */
+  background-color: #fff; /* Add a background color (optional) */
+  box-shadow: 0 14px 8px rgba(0, 0, 0, 0.1); /* Add bottom shadow */
+}
+
+.logo {
+  /*width: 100px; /* Set the width of the logo */
+  /*height: 100px; /* Set the height of the logo */
+  border: 3px solid transparent; /* Set the transparent border */
+  border-radius: 50%; /* Make the element circular */
+  background-image: linear-gradient(
+    90deg,
+    #007bff,
+    #00bcd4
+  ); /* Set the gradient background */
+  background-origin: border-box; /* Apply the background to the border area */
+  background-clip: content-box, border-box; /* Clip the background to the content and border */
+}
+
+.btn-style {
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  padding: 5px 10px;
+  text-align: center;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.btn-style:hover {
+  border: 1px solid white;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+}
+
+.btn-style-2 {
+  border: 1px solid #00bcd4;
+  background-color: white;
+  color: #00bcd4;
+  padding: 5px 10px;
+  text-align: center;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-weight: bolder;
+}
+.btn-style-2:hover {
+  border: 1px solid white;
+  background-color: #00bcd4;
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,106 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<!-- Link to custom styles -->
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='extended_beauty.css') }}"
+/>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+{% endblock %} {% block content %}
+<!-- Hero Section: Attractive Full-screen Section -->
+<section
+  class="hero bg-primary text-white text-center d-flex align-items-center"
+  style="height: 100vh"
+>
+  <div class="container">
+    <h1 class="display-3 mb-4">Welcome to Push-Ups Logger!</h1>
+    <p class="lead mb-5">
+      Track and improve your push-ups with ease. Start logging your progress
+      today!
+    </p>
+    {% if current_user.is_authenticated %}
+    <a
+      href="{{ url_for('main.new_workout_post')}}"
+      class="btn btn-light btn-lg px-4 py-3 shadow"
+      >Add New Workout</a
+    >
+    {% else %}
+    <a
+      href="{{ url_for('auth.login')}}"
+      class="btn btn-light btn-lg px-4 py-3 shadow"
+      >Start Logging</a
+    >
+    {% endif %}
+  </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="py-5">
+  <div class="container text-center">
+    <h2 class="display-4 mb-4">Amazing Features</h2>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0">
+          <img
+            src="{{ url_for('static', filename='images/track.jpg') }}"
+            class="card-img-top"
+            alt="Track"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Track Your Progress</h5>
+            <p class="card-text">
+              Easily log and monitor your push-up count and progress over time.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0">
+          <img
+            src="{{ url_for('static', filename='images/challenge.png') }}"
+            class="card-img-top"
+            alt="Challenge"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Set Challenges</h5>
+            <p class="card-text">
+              Challenge yourself with new goals and push your limits every day!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0">
+          <img
+            src="{{ url_for('static', filename='images/sharing.jpg') }}"
+            class="card-img-top"
+            alt="Share"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Share Your Success</h5>
+            <p class="card-text">
+              Share your achievements with friends and stay motivated to keep
+              going!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="bg-dark text-white text-center py-5">
+  <h3>Ready to Get Started?</h3>
+  <p class="lead">
+    Start tracking your push-ups and challenge yourself to improve every day!
+  </p>
+  <a href="#features" class="btn btn-light btn-lg shadow">Get Started Now</a>
+</section>
+
+<!-- Footer Section
+<footer class="bg-primary text-white text-center py-3">
+  <p>&copy; 2025 Push-Ups Logger. All rights reserved.</p>
+</footer> -->
+
+{% endblock %}

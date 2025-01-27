@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='extended_beauty.css')}}"
+/>
+
+{% endblock %} {% block content %}
+<div class="login-page">
+  <div
+    class="container d-flex justify-content-center align-items-center"
+    style="min-height: 100vh"
+  >
+    <div class="col-md-4 login-form">
+      <form method="POST" action="/login">
+        <h2 class="text-center">Login</h2>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control form"
+            id="email"
+            name="email"
+            aria-describedby="emailHelp"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control form"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+
+        <div class="mb-3 form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="remember"
+            name="remember"
+          />
+          <label class="form-check-label" for="exampleCheck1"
+            >Remember me</label
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 log-in-btn">
+          Submit
+        </button>
+      </form>
+
+      <div class="notification is-danger mt-3 text-center">
+        <p>
+          Don't have an account?
+          <a href="{{ url_for('auth.signup') }}" style="color: blue">Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

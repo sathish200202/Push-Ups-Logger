@@ -1,0 +1,45 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='extended_beauty.css') }}"
+/>
+<!-- Font Awesome CDN for Icons -->
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  rel="stylesheet"
+/>
+{% endblock %} {% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <!-- Profile Card -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card profile-card shadow-lg">
+        <!-- Card Header with User's Name -->
+        <div class="card-header text-center bg-primary text-white">
+          <h4><i class="fas fa-user"></i> {{ user.name }}</h4>
+        </div>
+
+        <!-- Card Body with User Details -->
+        <div class="card-body">
+          <div class="mb-3">
+            <strong><i class="fas fa-envelope"></i> Email: </strong>
+            <p>{{ user.email }}</p>
+          </div>
+          <div class="mb-3">
+            <strong><i class="fas fa-dumbbell"></i> Total Pushups: </strong>
+            <p>{{ total_pushups }}</p>
+          </div>
+          <div class="text-center">
+            <a
+              href="{{ url_for('main.edit_profile') }}"
+              class="btn btn-warning btn-sm"
+            >
+              <i class="fas fa-edit edit-profile"></i> Edit Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

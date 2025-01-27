@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <title>Push-Ups Logger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='images/muscle.ico') }}"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Inside the <head> block of base.html or your page -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='beauty.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='base.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    {% endblock %}
+  </head>
+
+  <body>
+    <!-- White Navbar with Shadow -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+      <a class="navbar-brand text-dark" href="{{ url_for('main.index') }}">
+        <img
+          src="{{ url_for('static', filename='images/muscle.ico') }}"
+          alt="Logo"
+          width="40"
+          height="40"
+          class="d-inline-block align-top mr-2 logo"
+        />
+        <span class="heading-style">Push-Ups Logger</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      {% if current_user.is_authenticated %}
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a
+              href="{{ url_for('main.user_workouts') }}"
+              class="btn-style-2"
+              role="button"
+            >
+              All Workouts
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              href="{{ url_for('main.profile') }}"
+              class="btn-style-2"
+              role="button"
+              style="margin-left: 4px"
+            >
+              Account
+            </a>
+          </li>
+        </ul>
+        {% endif %}
+        <form class="form-inline my-2 my-lg-0">
+          {% if current_user.is_authenticated %}
+          <a
+            href="{{ url_for('main.new_workout') }}"
+            class="btn-style btns"
+            role="button"
+          >
+            Add New Workout
+          </a>
+          {% endif %} {% if not current_user.is_authenticated %}
+          <a
+            href="{{ url_for('auth.signup') }}"
+            class="btn-style btns"
+            role="button"
+          >
+            Signup
+          </a>
+          <a
+            href="{{ url_for('auth.login') }}"
+            class="btn-style btns"
+            role="button"
+            style="margin-left: 4px"
+          >
+            Login
+          </a>
+          {% endif %} {% if current_user.is_authenticated %}
+          <a
+            href="{{ url_for('auth.logout') }}"
+            class="btn btn-outline-danger btns"
+            role="button"
+            style="margin-left: 4px"
+          >
+            Log Out
+          </a>
+          {% endif %}
+        </form>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <footer>
+          <p>&copy; 2025 Push-Ups Logger. All Rights Reserved.</p>
+        </footer>
+      </body>
+    </html>
+  </body>
+</html>

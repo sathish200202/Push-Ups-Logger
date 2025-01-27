@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='extended_beauty.css')}}"
+/>
+
+{% endblock %} {% block content %}
+<div class="signup-page">
+  <div
+    class="container d-flex justify-content-center align-items-center"
+    style="min-height: 100vh"
+  >
+    <div class="col-md-4 signup-form">
+      <form method="POST" action="/signup">
+        <h2 class="text-center">Sign Up</h2>
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter your full name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            aria-describedby="emailHelp"
+            required
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password1"
+            name="password1"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="password2"
+            name="password2"
+            placeholder="confirm your password"
+            required
+          />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="check">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 sign-up-btn">
+          Submit
+        </button>
+      </form>
+      <div class="notification is-danger mt-3 text-center">
+        <p>
+          Already have an account?
+          <a href="{{ url_for('auth.login') }}" style="color: blue">Login</a>
+        </p>
+      </div>
+    </div>
+    {% endblock %}
+  </div>
+</div>

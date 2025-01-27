@@ -1,0 +1,306 @@
+h1,
+h2,
+h4,
+p {
+  font-family: "Arvo", serif;
+}
+
+p {
+  font-size: 17px;
+}
+
+#intro {
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+/* Apply background gradient */
+.bg-gradient {
+  background: linear-gradient(45deg, #007bff, #00bcd4);
+}
+
+.create_workout {
+  border: 1px white;
+  border-radius: 5%;
+  padding-bottom: 50px;
+}
+
+.login-page {
+  background: linear-gradient(45deg, #007bff, #00bcd4); /* Blue gradient */
+  color: white;
+  text-align: center;
+}
+
+.login-form {
+  border: 1px solid white;
+  border-radius: 15px;
+  margin: 15px;
+  box-shadow: 3px 3px 2px white;
+}
+
+.log-in-btn {
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  font-weight: 800;
+}
+
+.btns {
+  border-radius: 20px;
+}
+
+.signup-page {
+  background: linear-gradient(45deg, #007bff, #00bcd4); /* Blue gradient */
+  color: white;
+  text-align: center;
+}
+
+.signup-form {
+  border: 1px solid white;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 3px 3px 2px white;
+  padding: 10px;
+}
+
+.sign-up-btn {
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  font-weight: 800;
+}
+
+.create-workout-form {
+  border: 1px solid white;
+  border-radius: 15px;
+  margin: 10px;
+  box-shadow: 3px 3px 2px white;
+  padding: 10px;
+}
+
+.btn-create-workout {
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  font-weight: 800;
+}
+
+.no-workout-msg {
+  color: black;
+  font-weight: 400;
+  text-align: center;
+}
+
+.btn-create-workout:hover {
+  border: 1px solid white;
+  background-color: #007bff;
+  color: white;
+}
+
+.update-workout-page {
+  padding: 20px;
+}
+
+/* Extended Profile Card Styling */
+.profile-card {
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+}
+
+/* Add shadow and slight zoom effect on hover */
+.profile-card:hover {
+  transform: translateY(-5px); /* Subtle lift effect */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Header Styles */
+.profile-card .card-header {
+  background: linear-gradient(
+    135deg,
+    #007bff,
+    #00bcd4
+  ); /* Beautiful gradient */
+  padding: 20px;
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* Card Body Styles */
+.profile-card .card-body {
+  padding: 20px;
+}
+
+.profile-card .card-body p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.profile-card .card-body .btn-warning {
+  background-color: white;
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-card .card-body .btn-warning:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.profile-card .card-body .mb-3 strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Center the profile card */
+.container {
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .profile-card {
+    margin: 10px;
+  }
+}
+
+/* Extended Update Profile Form Styling */
+.update-profile-card {
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Card Hover Effect */
+.update-profile-card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+/* Input Styling */
+.update-profile-card .form-control {
+  border-radius: 30px; /* Rounded input fields */
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.update-profile-card .form-control:focus {
+  border-color: #ff9800; /* Highlight the input field border on focus */
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.6);
+}
+
+/* Submit Button */
+.update-profile-card .btn-warning {
+  background-color: #ff9800;
+  border: none;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.update-profile-card .btn-warning:hover {
+  background-color: #f57c00; /* Darken button color on hover */
+}
+
+/* Heading Styles */
+.update-profile-card h2 {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Container Styling */
+.container {
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .update-profile-card {
+    margin: 10px;
+  }
+}
+
+/* Custom styles for Font Awesome Icons */
+.update-profile-card .form-group label i {
+  margin-right: 10px; /* Space between the icon and label */
+  color: #00bcd4; /* Icon color */
+  font-size: 1.2rem; /* Icon size */
+}
+
+.btn-style {
+  color: #00bcd4;
+  border: 1px solid #00bcd4;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.btn-style:hover {
+  color: white;
+  border: 1px solid #00bcd4;
+  background-color: #00bcd4;
+}
+
+/* Styling for Profile Icons */
+.profile-card .card-header h4 i,
+.profile-card .card-body i {
+  margin-right: 8px; /* Adds space between the icon and text */
+  color: #ff9800; /* Icon color */
+  font-size: 1.2rem; /* Adjust icon size */
+}
+
+/* Button Icon Styling */
+.profile-card .btn-warning i {
+  margin-right: 5px; /* Space between the icon and button text */
+}
+
+/* Styling for Profile Icons */
+.profile-card .card-header h4 i,
+.profile-card .card-body i {
+  margin-right: 8px; /* Adds space between the icon and text */
+  color: white; /* Icon color set to #007bff (blue) */
+  font-size: 1.2rem; /* Adjust icon size */
+}
+
+/* Button Icon Styling */
+.profile-card .btn-warning i {
+  margin-right: 5px; /* Space between the icon and button text */
+  color: #007bff; /* Set icon color to blue for the button */
+}
+
+.edit-profile:hover {
+  color: white;
+}
+
+.no-workout-container {
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #f0f8ff;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-workout-msg {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.no-workout-msg i {
+  color: #ff6347; /* Color for the icon */
+}

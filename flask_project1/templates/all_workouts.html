@@ -1,0 +1,98 @@
+{% extends "base.html" %} {% block head %} {{ super() }}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='extended_beauty.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='all_workout.css') }}"
+/>
+{% endblock %} {% block content %}
+<center>
+  <!-- Welcome Heading -->
+  <h1 class="heading text-center text-success my-2">
+    Welcome, <span class="user_name">{{ user.name }}</span>!
+  </h1>
+  {% with messages = get_flashed_messages() %} {% if messages %}
+  <div class="alert alert-success" role="alert">
+    <div class="flashes">{{ messages[0] }}</div>
+  </div>
+  {% endif %} {% endwith %}
+  <!-- 
+
+ -->
+  <!-- Table Container with White Background -->
+  <div class="table-responsive container-fluid bg-white py-5">
+    {% if workouts and workouts.items %} {% for workout in workouts %}
+    <table
+      class="table table-hover table-bordered mx-auto shadow-lg"
+      style="
+        width: 90%;
+        border-radius: 12px;
+        background: linear-gradient(to right, #007bff, #00bcd4);
+        color: white;
+      "
+    >
+      <thead class="custom-heading">
+        <tr>
+          <th scope="col" class="text-center">Number of Push-Ups</th>
+          <th scope="col" class="text-center">Performed At</th>
+          <th scope="col" class="text-center">Comments</th>
+          <th scope="col" class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">{{ workout.pushups }}</td>
+          <td class="text-center">
+            {{ workout.posted_At.strftime('%m/%d/%Y') }}
+          </td>
+          <td class="text-center">{{ workout.comment }}</td>
+          <td class="text-center">
+            <a
+              href="{{ url_for('main.update_workout', workout_id=workout.id)}}"
+              class="btn btn-outline-light btn-sm"
+              role="button"
+              style="margin-right: 8px"
+            >
+              Edit
+            </a>
+            <a
+              href="{{ url_for('main.delete_workout', workout_id = workout.id)}}"
+              class="btn btn-outline-danger btn-sm"
+              role="button"
+            >
+              Delete
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <div class="no-workout-container text-center">
+      <!-- Empty Icon (e.g., a sad face or placeholder icon) -->
+      <i class="fas fa-frown fa-3x mb-3 text-primary"></i>
+
+      <!-- Message -->
+      <p class="no-workout-msg">No Workouts.. Create Your New Workouts...</p>
+    </div>
+    {% endif %} {% for page_num in workouts.iter_pages(left_edge=1,
+    right_edge=1, left_current=1, right_current=1) %} {% if page_num %} {% if
+    workouts.page == page_num %}
+    <a
+      class="btn btn-info mb-4"
+      href="{{ url_for('main.user_workouts', page=page_num) }}"
+      >{{ page_num }}</a
+    >
+    {% else %}
+    <a
+      class="btn btn-outline-info mb-4"
+      href="{{ url_for('main.user_workouts', page=page_num) }}"
+      >{{ page_num }}</a
+    >
+    {% endif %} {% else %} ... {% endif %} {% endfor %}
+  </div>
+</center>
+
+{% endblock %}
